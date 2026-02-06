@@ -7,6 +7,5 @@ def group_anagrams(strs):
         count = [0] * 26  # An array with zeros to represent a-z.
         for c in s:
             count[ord(c) - ord("a")] += 1
-            print(count)
         result[tuple(count)].append(s)
     return list(result.values())
