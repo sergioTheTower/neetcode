@@ -23,11 +23,13 @@ func (s *Solution) Decode(encoded string) []string {
 	}
 	var res []string
 	for i := 0; i < len(encoded); {
-		// Find the next '#' starting from position i
+		// Find the hash tag.
 		pos := strings.Index(encoded[i:], "#") + i
+		// Use i position and the hashtag index to find the length of the word.
 		length, _ := strconv.Atoi(encoded[i:pos])
-		// Grab the string and update i in one go
+		// Now using slicing to grab the word.
 		res = append(res, encoded[pos+1:pos+1+length])
+		// Make sure the loop starts at the end of the word.
 		i = pos + 1 + length
 	}
 	return res
