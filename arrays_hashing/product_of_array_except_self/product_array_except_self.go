@@ -1,6 +1,8 @@
 // Package productofarrayexceptself provides a function to calculate the product of an array excluding each element.
 package productofarrayexceptself
 
+import "fmt"
+
 func ProductExceptSelf(nums []int) []int {
 	result := make([]int, len(nums))
 	for idx := range result {
@@ -12,6 +14,7 @@ func ProductExceptSelf(nums []int) []int {
 		result[i] = prefix
 		prefix *= nums[i]
 	}
+	fmt.Println(result)
 
 	postfix := 1
 	for i := range nums {
